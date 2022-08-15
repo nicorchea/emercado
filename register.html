@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <title>Registro</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body class="bg-light">
+    <div class="container">
+      <main>
+        <div class="row mt-4">
+          <div class="col">
+            <h1 class="mb-3">Registro</h1>
+            <hr class="my-4" />
+
+            <!-- FORM DE BOOTSTRAP-->
+
+            <!-- oninput permite realizar una validacion custom en la cual se comparan los valores de password1 y password2 y se devuelve una respuesta si coinciden o no, los valores son tomados del nombre de el input, en este caso (psw1 y psw2) 
+            
+            novalidate cancela la validacion automatica del navegador y la class="needs-validation" permite que bootstrap maneje todo, permitiendo de esta forma ahorrar un monton de codigo 
+          
+            Las class="form-control" de cada input son necesarias para indicar que se trata de un campo de formulario y los requiered para marcar ese campo como obligatorio 
+          
+            Otra solucion al problema esta comentada en validacion.js -->
+            <form
+              action="frontPage.html"
+              method=""
+              id="form"
+              class="needs-validation"
+              novalidate
+              oninput='psw2.setCustomValidity(psw2.value != psw1.value ? "Las contraseñas no coinciden" : "")'
+            >
+              <div class="row g-3">
+                <!-- CAMPO NOMBRE -->
+
+                <div class="col-sm-6 form-group">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombre"
+                    required
+                  />
+                  <div class="invalid-feedback">Ingresa tu nombre</div>
+                </div>
+
+                <!-- CAMPO APELLIDO -->
+                <div class="col-sm-6 form-group">
+                  <label for="apellido" class="form-label">Apellido</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="apellido"
+                    required
+                  />
+                  <div class="invalid-feedback">Ingresa tu apellido</div>
+                </div>
+
+                <!-- CAMPO EMAIL -->
+                <div class="col-12 form-group">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    required
+                  />
+                  <div class="invalid-feedback">Ingresa tu e-mail</div>
+                </div>
+
+                <!-- CAMPO CONTRASEÑA -->
+
+                <!-- minlength="6" indica que es obligatorio un minimo de 6 caracteres para la contraseña -->
+
+                <div class="col-sm-6 form-group">
+                  <label for="password1" class="form-label">Contraseña</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password1"
+                    name="psw1"
+                    required
+                    minlength="6"
+                  />
+                  <div class="invalid-feedback">
+                    La contraseña debe de tener un minimo de 6 caracteres
+                  </div>
+                </div>
+
+                <!-- REPETIR CONTRASEÑA -->
+                <div class="col-sm-6 form-group">
+                  <label for="password2" class="form-label"
+                    >Repetir contraseña</label
+                  >
+                  <div>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password2"
+                      name="psw2"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Las contraseñas no coinciden
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CHECKBOX -->
+                <div class="form-check form-group">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="terminos"
+                    required
+                  />
+                  <label class="form-check-label" for="terminos"
+                    >Acepto los términos y condiciones del servicio.</label
+                  >
+                  <div class="invalid-feedback">
+                    Debes aceptar los términos y condiciones.
+                  </div>
+                </div>
+
+                <!-- BUTTON -->
+                <button class="btn btn-primary" type="submit" id="regBtn">
+                  Registrarme
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+
+      <!-- FOOTER -->
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">
+          Este sitio forma parte de
+          <a href="https://jovenesaprogramar.edu.uy/" target="_blank"
+            >Jovenes a Programar</a
+          >
+          - 2022
+        </p>
+        <p class="mb-1">
+          Es un sitio generado con fines estrictamente educativos. No realiza
+          registros ni guarda datos de ningún tipo.
+        </p>
+      </footer>
+    </div>
+
+    <!-- ALERT SUCCESS -->
+
+    <div
+      class="alert alert-success alert-dismissible fade"
+      role="alert"
+      id="alert-success"
+    >
+      <p>Datos guardados correctamente</p>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+
+    <!-- ALERT DANGER -->
+
+    <div
+      class="alert alert-danger alert-dismissible fade"
+      role="alert"
+      id="alert-danger"
+    >
+      <p>Los datos ingresados no cumplen con los requisitos solicitados</p>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+
+    <!-- SCRIPT BOOTSTRAP -->
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- SCRIPT REGISTRO -->
+
+    <script src="js/register.js"></script>
+  </body>
+</html>
