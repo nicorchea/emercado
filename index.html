@@ -80,8 +80,27 @@
               Ingresar
             </button>
           </div>
+
+          <!-- BOTON GOOGLE  -->
+
+          <script
+            src="https://accounts.google.com/gsi/client"
+            async
+            defer
+          ></script>
+          <div
+            id="g_id_onload"
+            data-client_id="318189781618-eeb5rc6q3l7aa0ner5vka0lamuanras7"
+            data-callback="ingreso"
+          ></div>
+
+          <div
+            class="d-flex justify-content-center g_id_signin mb-2"
+            data-type="standard"
+          ></div>
+
           <div>
-            <!-- REGISTRO ECHO EN EL TRABAJO GRUPAL -->
+            <!-- REGISTRO DE TRABAJO GRUPAL -->
             <a href="register.html" class="text-decoration-none"
               >Crear cuenta</a
             >
@@ -113,6 +132,8 @@
   </footer>
 
   <!-------- SCRIPT  -------->
+
+  <!-- BOOTSTRAP -->
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/index.js"></script>

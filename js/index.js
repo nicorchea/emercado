@@ -22,3 +22,11 @@
     );
   });
 })();
+
+// Funcion ingreso google
+
+function ingreso() {
+  alert("Ingreso exitoso!");
+  location.href =
+    "https://nicorchea.github.io/workspace-inicial/frontPage.html?";
+}
