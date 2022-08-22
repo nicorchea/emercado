@@ -7,7 +7,7 @@ const setEmail = () => {
   localStorage.setItem("email", emailInput.value);
 };
 
-// Obtiene el email de la local storage
+// Obtiene el email de la local storage-
 const getEmail = () => {
   const email = localStorage.getItem("email");
   return email;
