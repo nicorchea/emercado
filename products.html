@@ -39,16 +39,18 @@
               <a class="nav-link active" href="frontPage.html">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="categories.html">Categorías</a>
+              <a class="nav-link" href="categories.html" id="categories"
+                >Categorías</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="sell.html">Vender</a>
+              <a class="nav-link" href="sell.html" id="sell">Vender</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="my-profile.html">Perfil</a>
+              <a id="profile" class="nav-link" href="my-profile.html"></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="cart.html">Carrito</a>
+              <a class="nav-link" href="cart.html" id="cart">Carrito</a>
             </li>
           </ul>
         </div>
@@ -59,9 +61,9 @@
     <main class="pb-5 container">
       <div class="text-center p-4">
         <h2>Productos</h2>
-        <p>
+        <p class="lead">
           Verás aquí todos los productos de la categoría
-          <span class="fw-bold"> Autos </span>
+          <span id="catName" class="fw-bold"> </span>
         </p>
       </div>
 
@@ -105,5 +107,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
+    <script src="js/localStorage.js"></script>
   </body>
 </html>

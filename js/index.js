@@ -1,4 +1,4 @@
-// BUILT-IN Bootstrap script requerido para el formulario
+//* BUILT-IN Bootstrap script requerido para el formulario
 
 (function () {
   "use strict";
@@ -23,7 +23,7 @@
   });
 })();
 
-// Funcion ingreso google
+//* Funcion ingreso google
 
 function ingreso() {
   alert("Ingreso exitoso!");

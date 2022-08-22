@@ -1,11 +1,17 @@
+// Metodo que obtiene la id de la categoria a ingresar
+const getId = () => {
+  const id = localStorage.getItem("catID");
+  return id;
+};
+
+// URL que varia segun la categoria a la que queremos ingresar
+const PRODUCTS_URL =
+  "https://japceibal.github.io/emercado-api/cats_products/" + getId() + ".json";
+
 const CATEGORIES_URL = "https://japceibal.github.io/emercado-api/cats/cat.json";
 
 const PUBLISH_PRODUCT_URL =
   "https://japceibal.github.io/emercado-api/sell/publish.json";
-
-// CATEGORIA AUTOS
-const PRODUCTS_URL =
-  "https://japceibal.github.io/emercado-api/cats_products/101.json";
 
 const PRODUCT_INFO_URL = "https://japceibal.github.io/emercado-api/products/";
 

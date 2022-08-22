@@ -57,3 +57,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Agrega el nombre de la categoria en el titulo segun corresponda
+switch (getId()) {
+  case "101":
+    catName.innerHTML = `Autos`;
+    break;
+  case "102":
+    catName.innerHTML = `Juguetes`;
+    break;
+  case "103":
+    catName.innerHTML = `Muebles`;
+    break;
+  case "104":
+    catName.innerHTML = `Herramientas`;
+    break;
+  case "105":
+    catName.innerHTML = `Computadoras`;
+    break;
+  case "106":
+    catName.innerHTML = `Vestimenta`;
+    break;
+  case "107":
+    catName.innerHTML = `Electrodomésticos`;
+    break;
+  case "108":
+    catName.innerHTML = `Deporte`;
+    break;
+  case "109":
+    catName.innerHTML = `Celulares`;
+    break;
+}
