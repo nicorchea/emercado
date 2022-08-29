@@ -23,7 +23,7 @@
   });
 })();
 
-//* Funcion ingreso google
+//* Funcion ingreso Google
 
 function ingreso() {
   alert("Ingreso exitoso!");

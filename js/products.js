@@ -43,6 +43,7 @@ const PRODUCTS_CONTAINER = document.getElementById("products-list-container");
 const BTN_SORT_ASCEN = document.getElementById("sortAsc");
 const BTN_SORT_DESC = document.getElementById("sortDesc");
 const BTN_SORT_BY_SELL = document.getElementById("sortBySell");
+const SEARCH_BAR = document.getElementById("search");
 const MIN_INPUT = document.getElementById("rangeFilterCountMin");
 const MAX_INPUT = document.getElementById("rangeFilterCountMax");
 const BTN_FILTRAR = document.getElementById("rangeFilterCount");
@@ -92,16 +93,19 @@ function sortProducts(criteria, array) {
       return 0;
     });
   }
-  showProductsList();
-
-  return result;
+  console.log(result);
+  showProductsList(result);
 }
 
 // Funcion que agrega al HTML la lista de productos manipulando el DOM
-const showProductsList = () => {
+const showProductsList = (currentArray) => {
   let htmlContentToAppend = "";
 
-  currentProductsArray.forEach((element) => {
+  if (currentArray.length == 0) {
+    PRODUCTS_CONTAINER.innerHTML = "";
+  }
+
+  currentArray.forEach((element) => {
     if (
       (minPrice == undefined ||
         (minPrice != undefined && parseInt(element.cost) >= minPrice)) &&
@@ -110,7 +114,7 @@ const showProductsList = () => {
     ) {
       htmlContentToAppend +=
         `
-        <div class="list-group-item list-group-item-action">
+        <div  class="card list-group-item list-group-item-action">
         <div class="row">
         <div class="col-3">
         <img src="` +
@@ -145,13 +149,15 @@ const showProductsList = () => {
   });
 };
 
-// Evento que se activa al cargar todos los elementos de DOM
+// * ---------- EVENTOS ---------
+
+// Eventos que se activan al cargar todos los elementos de DOM
 document.addEventListener("DOMContentLoaded", function (e) {
   getJSONData(PRODUCTS_URL).then(function (resultObj) {
     if (resultObj.status === "ok") {
       currentProductsArray = resultObj.data.products;
 
-      showProductsList();
+      showProductsList(currentProductsArray);
     }
   });
 
@@ -173,10 +179,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     MAX_INPUT.value = "";
 
+    SEARCH_BAR.value = "";
+
     minPrice = undefined;
     maxPrice = undefined;
 
-    showProductsList();
+    showProductsList(currentProductsArray);
   };
 
   BTN_FILTRAR.onclick = () => {
@@ -195,6 +203,18 @@ document.addEventListener("DOMContentLoaded", function (e) {
       maxPrice = undefined;
     }
 
-    showProductsList();
+    showProductsList(currentProductsArray);
   };
 });
+
+SEARCH_BAR.onkeyup = () => {
+  const value = SEARCH_BAR.value.toLowerCase();
+
+  const res = currentProductsArray.filter(
+    (product) =>
+      product.name.toLowerCase().includes(value) ||
+      product.description.toLowerCase().includes(value)
+  );
+
+  showProductsList(res);
+};
