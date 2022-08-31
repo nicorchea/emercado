@@ -36,66 +36,34 @@ switch (getId()) {
 
 // * ---------- DECLARACIONES ----------
 
-const ORDER_ASC_BY_PRICE = "PriceASC";
-const ORDER_DESC_BY_PRICE = "PriceDESC";
-const ORDER_BY_PROD_SELL = "Sell";
+// Container donde se cargara el contenido
 const PRODUCTS_CONTAINER = document.getElementById("products-list-container");
+
+// Boton ordenar ascendente
 const BTN_SORT_ASCEN = document.getElementById("sortAsc");
+
+// Boton ordenar descendente
 const BTN_SORT_DESC = document.getElementById("sortDesc");
+
+// Boton ordenar por productos vendidos
 const BTN_SORT_BY_SELL = document.getElementById("sortBySell");
+
+// Elemento barra de busqueda
 const SEARCH_BAR = document.getElementById("search");
+
+// Elemento precio minimo
 const MIN_INPUT = document.getElementById("rangeFilterCountMin");
+
+// Elemento precio maximo
 const MAX_INPUT = document.getElementById("rangeFilterCountMax");
+
+// Boton filtrar
 const BTN_FILTRAR = document.getElementById("rangeFilterCount");
+
+// Boton limpiar
 const BTN_LIMPIAR = document.getElementById("clearRangeFilter");
 
-let currentProductsArray = [];
-let currentSortCriteria = undefined;
-let minPrice = undefined;
-let maxPrice = undefined;
-
-// * ---------- PRODUCTOS----------
-
-// Funcion que devuelve un valor segun criterios ascendentes, descendentes o por orden de ventas (relevancia)
-function sortProducts(criteria, array) {
-  let result = [];
-  if (criteria === ORDER_ASC_BY_PRICE) {
-    result = array.sort(function (a, b) {
-      if (a.cost < b.cost) {
-        return -1;
-      }
-      if (a.cost > b.cost) {
-        return 1;
-      }
-      return 0;
-    });
-  } else if (criteria === ORDER_DESC_BY_PRICE) {
-    result = array.sort(function (a, b) {
-      if (a.cost < b.cost) {
-        return 1;
-      }
-      if (a.cost > b.cost) {
-        return -1;
-      }
-      return 0;
-    });
-  } else if (criteria === ORDER_BY_PROD_SELL) {
-    result = array.sort(function (a, b) {
-      let aCount = parseInt(a.soldCount);
-      let bCount = parseInt(b.soldCount);
-
-      if (aCount > bCount) {
-        return -1;
-      }
-      if (aCount < bCount) {
-        return 1;
-      }
-      return 0;
-    });
-  }
-  console.log(result);
-  showProductsList(result);
-}
+// * ---------- FUNCIONES ----------
 
 // Funcion que agrega al HTML la lista de productos manipulando el DOM
 const showProductsList = (currentArray) => {
@@ -106,12 +74,7 @@ const showProductsList = (currentArray) => {
   }
 
   currentArray.forEach((element) => {
-    if (
-      (minPrice == undefined ||
-        (minPrice != undefined && parseInt(element.cost) >= minPrice)) &&
-      (maxPrice == undefined ||
-        (maxPrice != undefined && parseInt(element.cost) <= maxPrice))
-    ) {
+    {
       htmlContentToAppend +=
         `
         <div  class="card list-group-item list-group-item-action">
@@ -152,61 +115,65 @@ const showProductsList = (currentArray) => {
 // * ---------- EVENTOS ---------
 
 // Eventos que se activan al cargar todos los elementos de DOM
-document.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener("DOMContentLoaded", function () {
   getJSONData(PRODUCTS_URL).then(function (resultObj) {
     if (resultObj.status === "ok") {
       currentProductsArray = resultObj.data.products;
 
       showProductsList(currentProductsArray);
     }
+
+    // Al clickear boton ascendente
+    BTN_SORT_ASCEN.onclick = () => {
+      let res = currentProductsArray.sort((a, b) => {
+        return a.cost - b.cost;
+      });
+      showProductsList(res);
+    };
+
+    // Al clickear boton descendente
+    BTN_SORT_DESC.onclick = () => {
+      let res = currentProductsArray.sort((a, b) => {
+        return b.cost - a.cost;
+      });
+      showProductsList(res);
+    };
+
+    // Al clickear boton vendidos
+    BTN_SORT_BY_SELL.onclick = () => {
+      let res = currentProductsArray.sort((a, b) => {
+        return b.soldCount - a.soldCount;
+      });
+      showProductsList(res);
+    };
   });
-
-  // Funciones que se activan al hacer click en los respectivos botones
-  BTN_SORT_ASCEN.onclick = () => {
-    sortProducts(ORDER_ASC_BY_PRICE, currentProductsArray);
-  };
-
-  BTN_SORT_DESC.onclick = () => {
-    sortProducts(ORDER_DESC_BY_PRICE, currentProductsArray);
-  };
-
-  BTN_SORT_BY_SELL.onclick = () => {
-    sortProducts(ORDER_BY_PROD_SELL, currentProductsArray);
-  };
-
-  BTN_LIMPIAR.onclick = () => {
-    MIN_INPUT.value = "";
-
-    MAX_INPUT.value = "";
-
-    SEARCH_BAR.value = "";
-
-    minPrice = undefined;
-    maxPrice = undefined;
-
-    showProductsList(currentProductsArray);
-  };
-
-  BTN_FILTRAR.onclick = () => {
-    minPrice = MIN_INPUT.value;
-    maxPrice = MAX_INPUT.value;
-
-    if (minPrice != undefined && minPrice != "" && parseInt(minPrice) >= 0) {
-      minPrice = parseInt(minPrice);
-    } else {
-      minPrice = undefined;
-    }
-
-    if (maxPrice != undefined && maxPrice != "" && parseInt(maxPrice) >= 0) {
-      maxPrice = parseInt(maxPrice);
-    } else {
-      maxPrice = undefined;
-    }
-
-    showProductsList(currentProductsArray);
-  };
 });
 
+// Al filtrar por precio minimo y maximo
+BTN_FILTRAR.onclick = () => {
+  let minCost = MIN_INPUT.value;
+  let maxCost = MAX_INPUT.value;
+
+  if (minCost && maxCost == "") {
+    const res = currentProductsArray.filter(
+      (product) => product.cost >= MIN_INPUT.value
+    );
+    showProductsList(res);
+  } else if (minCost == "" && maxCost) {
+    const res = currentProductsArray.filter(
+      (product) => product.cost <= MAX_INPUT.value
+    );
+    showProductsList(res);
+  } else if (minCost && maxCost) {
+    const res = currentProductsArray.filter(
+      (product) =>
+        product.cost <= MAX_INPUT.value && product.cost >= MIN_INPUT.value
+    );
+    showProductsList(res);
+  }
+};
+
+// Al escribir en la barra de busqueda
 SEARCH_BAR.onkeyup = () => {
   const value = SEARCH_BAR.value.toLowerCase();
 
@@ -217,4 +184,15 @@ SEARCH_BAR.onkeyup = () => {
   );
 
   showProductsList(res);
+};
+
+// Al clickear boton limpiar
+BTN_LIMPIAR.onclick = () => {
+  MIN_INPUT.value = "";
+
+  MAX_INPUT.value = "";
+
+  SEARCH_BAR.value = "";
+
+  showProductsList(currentProductsArray);
 };
