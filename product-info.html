@@ -15,9 +15,14 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
-  <!--  -->
+
   <body>
+    <!------------ NAV-BAR ------------>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
       <div class="container">
         <button
@@ -51,13 +56,61 @@
         </div>
       </div>
     </nav>
+
+    <!------------ MAIN ------------>
     <main>
-      <div class="container">
-        <div class="alert alert-danger text-center" role="alert">
-          <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <!------------ CONTAINER INFO  ------------>
+
+      <div class="container p-4 pb-0 mb-0" id="product-info-container"></div>
+
+      <!------------ CONTAINER INPUT GROUP  ------------>
+      <div class="container p-4 pt-0">
+        <h2>Comentar</h2>
+
+        <p class="mb-1">Tu opinión</p>
+
+        <div class="input-group w-50">
+          <textarea
+            class="form-control mb-3"
+            aria-label="With textarea"
+            id="opinion"
+          ></textarea>
         </div>
+
+        <p class="mb-1">Tu puntuación:</p>
+
+        <div class="input-group mb-3 w-25">
+          <select class="form-select" id="inputGroupSelect">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <button id="enviar" type="submit" class="btn btn-primary mt-3">
+          Enviar
+        </button>
+      </div>
+
+      <!------------ ALERTA ------------>
+      <div
+        class="alert alert-danger alert-dismissible fade"
+        role="alert"
+        id="alert-danger"
+      >
+        <p>El campo no puede estar vacio</p>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
       </div>
     </main>
+
+    <!------------ FOOTER ------------>
     <footer class="text-muted">
       <div class="container">
         <p class="float-end">

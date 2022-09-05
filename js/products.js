@@ -4,7 +4,7 @@
 
 // Agrega el nombre de la categoria en el titulo segun corresponda
 
-switch (getId()) {
+switch (getCatId()) {
   case "101":
     catName.innerHTML = `Autos`;
     break;
@@ -65,19 +65,25 @@ const BTN_LIMPIAR = document.getElementById("clearRangeFilter");
 
 // * ---------- FUNCIONES ----------
 
+// Funcion que guarda la ID del producto en la local storage
+const setProductID = (id) => {
+  localStorage.setItem("productID", id);
+  window.location = "product-info.html";
+};
+
 // Funcion que agrega al HTML la lista de productos manipulando el DOM
-const showProductsList = (currentArray) => {
+const showProductsList = (array) => {
   let htmlContentToAppend = "";
 
-  if (currentArray.length == 0) {
+  if (array.length == 0) {
     PRODUCTS_CONTAINER.innerHTML = "";
   }
 
-  currentArray.forEach((element) => {
+  array.forEach((element) => {
     {
       htmlContentToAppend +=
         `
-        <div  class="card list-group-item list-group-item-action">
+        <div onclick="setProductID(${element.id})" class="card list-group-item list-group-item-action">
         <div class="row">
         <div class="col-3">
         <img src="` +

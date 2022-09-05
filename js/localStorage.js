@@ -15,6 +15,7 @@ const getEmail = () => {
 
 // * ---------- CONDICION ----------
 
+// Si hay un boton de submit setea el email
 if (document.getElementById("submit")) {
   const btn = document.getElementById("submit");
 
@@ -22,6 +23,7 @@ if (document.getElementById("submit")) {
     setEmail();
   };
 } else {
+  // Si no hay boton de submit, muestra el correo en la navBar
   const profile_link = document.getElementById("profile");
 
   const addToHTML = () => {
