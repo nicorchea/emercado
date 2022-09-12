@@ -31,7 +31,10 @@ const getProductImages = (array) => {
   array.forEach((element) => {
     res += `
 
-      <img src="${element}" class="d-block w-100 img-thumbnail justify-content-between align-items-center m-3 mb-3 ms-0 mt-3" alt="imagenes de producto">
+    <picture class="d-flex">
+      <img src="${element}" class="d-block w-100 img-thumbnail justify-content-between align-items-center m-3 mb-3 ms-0 mt-3 shadow-sm"  
+      alt="imagenes de producto">
+    </picture>
 
     `;
   });
@@ -65,10 +68,10 @@ const showProductInfo = (obj) => {
   
   <div class="d-flex mt-4 mb-3"> ${getProductImages(obj.images)} </div>
 
-  <hr class="mt-5">
+  <hr >
   <ul id="comments-container" class="list-group list-group-flush mb-3">    
   </ul>
-  <hr class="mb-5">
+  <hr >
 
   `;
 };
@@ -116,7 +119,7 @@ const showProductComments = (obj) => {
   obj.forEach((comment) => {
     COMMENTS_CONTAINER.innerHTML += `
 
-    <li class="list-group-item">
+    <li class="list-group-item bg-light">
       <span class="fw-bold">
       ${comment.user}
       </span>

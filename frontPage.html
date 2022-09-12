@@ -12,15 +12,26 @@
       href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
   </head>
 
   <body>
-    <!-- NAVEGACION -->
+    <!-- NAVBAR -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-3">
       <div class="container">
+        <!-- LOGO -->
+
+        <a class="navbar-brand pb-2" href="frontPage.html">
+          <img src="img/logo color original.png" alt="" width="200" />
+        </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -33,29 +44,118 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav w-100 justify-content-between">
-            <!--- <li class="nav-item">
-              <a class="navbar-brand" href="frontPage.html">
-                <img
-                  class="img-fluid"
-                  src="img/logo-prueba-140x1401.jpg"
-                  alt=""
+          <ul class="navbar-nav w-100 align-content-center justify-content-end">
+            <!-- SEARCH -->
+
+            <div class="container p-0 m-0 nav-item ms-3">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
                 />
+                <button class="btn btn-dark" type="submit">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                    class="bi bi-search me-3"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
+
+            <!-- USUARIO -->
+
+            <li class="dropdown nav-item">
+              <a
+                class="dropdown-toggle nav-link me-2"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="profile"
+              >
               </a>
-            </li> -->
-            <li class="nav-item">
-              <a class="nav-link active" href="frontPage.html">Inicio</a>
+
+              <!-- MENU-DESPLEGABLE-USUARIO -->
+              <ul class="dropdown-menu dropdown-menu-dark p-2">
+                <li><a class="dropdown-item nav-link" href="#">Action</a></li>
+                <li>
+                  <a class="dropdown-item nav-link" href="#">Another action</a>
+                </li>
+                <li>
+                  <a class="dropdown-item nav-link" href="#"
+                    >Something else here</a
+                  >
+                </li>
+              </ul>
             </li>
+
+            <!-- CATEGORIAS -->
             <li class="nav-item">
-              <a class="nav-link" href="categories.html" id="categories"
+              <a class="nav-link me-2" href="categories.html" id="categories"
                 >Categorías</a
               >
             </li>
+
+            <!-- VENDER -->
             <li class="nav-item">
-              <a class="nav-link" href="sell.html" id="sell">Vender</a>
+              <a class="nav-link me-2" href="sell.html" id="sell">Vender</a>
             </li>
+
+            <!-- NOTIFICACIONES -->
             <li class="nav-item">
-              <a id="profile" class="nav-link" href="my-profile.html"></a>
+              <a class="nav-link position-relative me-2" href=""
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  class="bi bi-bell"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"
+                  />
+                  <span
+                    class="position-absolute top-90 start-60 translate-middle p-1 bg-danger border rounded-circle"
+                  >
+                    <span class="visually-hidden">New alerts</span>
+                  </span>
+                </svg></a
+              >
+            </li>
+            <li class="nav-item"></li>
+
+            <!-- CARRITO -->
+            <li class="nav-item">
+              <a class="nav-link position-relative" href=""
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-cart2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                  />
+                  <span
+                    class="position-absolute top-90 start-60 translate-middle p-1 bg-danger border rounded-circle"
+                  >
+                    <span class="visually-hidden">New alerts</span>
+                  </span>
+                </svg></a
+              >
             </li>
           </ul>
         </div>
@@ -65,73 +165,476 @@
     <!-- MAIN -->
 
     <main>
-      <div class="jumbotron text-center"></div>
-      <div class="album py-5 bg-light">
+      <!-- CARRUSEL -->
+
+      <div
+        id="carouselExampleInterval"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="4000">
+            <img
+              src="img/carousel/1 carrusel.jpg"
+              class="d-block w-100"
+              alt="cover emercado"
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="4000">
+            <img
+              src="img/carousel/2 carrusel.jpg"
+              class="d-block w-100"
+              alt="imagen poductos carrusel 2"
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="4000">
+            <img
+              src="img/carousel/3 carrusel.jpg"
+              class="d-block w-100"
+              alt="imagen productos carrusel 3"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- TARJETAS-DESTACADOS-->
+
+      <div class="album py-5 bg-light mb-0 pb-0">
         <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div
-                class="card mb-4 shadow-sm custom-card cursor-active"
-                id="autos"
-              >
+          <div class="d-flex align-items-baseline">
+            <h3 class="mb-3 me-3 text-secondary">Destacados</h3>
+            <a href="" class="link-primary text-decoration-none">ver mas</a>
+          </div>
+          <div class="row mb-5">
+            <div class="col-md-3">
+              <div class="card mb-3 shadow-sm custom-card cursor-active">
                 <img
-                  class="bd-placeholder-img card-img-top"
-                  src="img/cars_index.jpg"
+                  class="bd-placeholder-img card-img-top p-2 border-bottom"
+                  src="img/prod60802_1.jpg"
                   alt="Imgagen representativa de la categoría 'Autos'"
                 />
-                <h3 class="m-3">Autos</h3>
                 <div class="card-body">
+                  <h3 class="card-title mb-2">Sofá</h3>
+                  <h4 class="card-subtitle mb-2">$ 24.000</h4>
+                  <p class="card-text text-success">
+                    10x $2.400
+                    <mark class="font-weight-bold"> sin interes </mark>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card mb-3 shadow-sm custom-card cursor-active">
+                <img
+                  class="bd-placeholder-img card-img-top p-2 border-bottom"
+                  src="img/prod50744_4.jpg"
+                  alt="Imgagen representativa de la categoría 'Autos'"
+                />
+                <div class="card-body">
+                  <h3 class="card-title mb-2">Bicicleta</h3>
+                  <h4 class="card-subtitle mb-2">$ 10.999</h4>
+                  <p class="card-text text-success mb-1">
+                    10x $1.099
+                    <mark> sin interes </mark>
+                    <span
+                      class="position-absolute top-100 start-50 translate-middle badge bg-success"
+                      >Envio gratis</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card mb-3 shadow-sm custom-card cursor-active">
+                <img
+                  class="bd-placeholder-img card-img-top p-2 border-bottom"
+                  src="img/prod60803_1.jpg"
+                  alt="Imgagen representativa de la categoría 'Autos'"
+                />
+                <div class="card-body">
+                  <h3 class="card-title mb-2">Armario</h3>
+                  <h4 class="card-subtitle mb-2">$ 8.000</h4>
+                  <p class="card-text text-success">
+                    10x $800
+                    <mark> sin interes </mark>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card mb-3 shadow-sm custom-card cursor-active">
+                <img
+                  class="bd-placeholder-img card-img-top p-2 border-bottom"
+                  src="img/prod50743_1.jpg"
+                  alt="Imgagen representativa de la categoría 'Autos'"
+                />
+                <div class="card-body">
+                  <h3 class="card-title mb-2">PlayStation 5</h3>
+                  <h4 class="card-subtitle mb-2">$ 59.000</h4>
+                  <p class="card-text text-success mb-1">
+                    10x $5900
+                    <mark> sin interes </mark>
+                    <span
+                      class="position-absolute top-100 start-50 translate-middle badge bg-success"
+                      >Envio gratis</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL-CATEGORIAS -->
+
+          <div class="d-flex align-items-baseline mt-3">
+            <h3 class="mb-3 me-3 text-secondary">Categorias</h3>
+            <a href="" class="link-primary text-decoration-none">ver todo</a>
+          </div>
+          <div
+            class="container text-center mb-5 border-top border-bottom p-2 bg-white"
+          >
+            <div class="row row-cols-5">
+              <div class="col btn btn-outline-success border-0 p-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  class="bi bi-car-front-fill mb-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189l.956-1.913A.5.5 0 0 1 4.309 3h7.382a.5.5 0 0 1 .447.276l.956 1.913a.51.51 0 0 1-.497.731c-.91-.073-3.35-.17-4.597-.17-1.247 0-3.688.097-4.597.17a.51.51 0 0 1-.497-.731Z"
+                  />
+                </svg>
+                <h5 class="m-0">Autos</h5>
+              </div>
+              <div class="col btn btn-outline-success border-0 p-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  class="bi bi-joystick mb-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2z"
+                  />
+                  <path
+                    d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z"
+                  />
+                </svg>
+                <h5 class="m-0">Juguetes</h5>
+              </div>
+              <div class="col btn btn-outline-success border-0 p-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  class="bi bi-house-fill mb-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
+                  />
+                </svg>
+                <h5 class="m-0">Muebles</h5>
+              </div>
+              <div class="col btn btn-outline-success border-0 p-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  class="bi bi-tools mb-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"
+                  />
+                </svg>
+                <h5 class="m-0">Herramientas</h5>
+              </div>
+              <div class="col btn btn-outline-success border-0 p-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  class="bi bi-pc-display mb-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V1Zm1 13.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0Zm2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0ZM9.5 1a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5ZM9 3.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1h-5a.5.5 0 0 0-.5.5ZM1.5 2A1.5 1.5 0 0 0 0 3.5v7A1.5 1.5 0 0 0 1.5 12H6v2h-.5a.5.5 0 0 0 0 1H7v-4H1.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5H7V2H1.5Z"
+                  />
+                </svg>
+                <h5 class="m-0">Computadoras</h5>
+              </div>
+              <div class="col btn btn-outline-success border-0 p-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  class="bi bi-sunglasses mb-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3 5a2 2 0 0 0-2 2v.5H.5a.5.5 0 0 0 0 1H1V9a2 2 0 0 0 2 2h1a3 3 0 0 0 3-3 1 1 0 1 1 2 0 3 3 0 0 0 3 3h1a2 2 0 0 0 2-2v-.5h.5a.5.5 0 0 0 0-1H15V7a2 2 0 0 0-2-2h-2a2 2 0 0 0-1.888 1.338A1.99 1.99 0 0 0 8 6a1.99 1.99 0 0 0-1.112.338A2 2 0 0 0 5 5H3zm0 1h.941c.264 0 .348.356.112.474l-.457.228a2 2 0 0 0-.894.894l-.228.457C2.356 8.289 2 8.205 2 7.94V7a1 1 0 0 1 1-1z"
+                  />
+                </svg>
+                <h5 class="m-0">Vestimenta</h5>
+              </div>
+              <div class="col btn btn-outline-success border-0 p-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  class="bi bi-lamp-fill mb-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.04.303A.5.5 0 0 1 5.5 0h5c.2 0 .38.12.46.303l3 7a.5.5 0 0 1-.363.687h-.002c-.15.03-.3.056-.45.081a32.731 32.731 0 0 1-4.645.425V13.5a.5.5 0 1 1-1 0V8.495a32.753 32.753 0 0 1-4.645-.425c-.15-.025-.3-.05-.45-.08h-.003a.5.5 0 0 1-.362-.688l3-7Z"
+                  />
+                  <path
+                    d="M6.493 12.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.052.075l-.001.004-.004.01V14l.002.008a.147.147 0 0 0 .016.033.62.62 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.62.62 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411Z"
+                  />
+                </svg>
+                <h5 class="mt-0">Electrodomesticos</h5>
+              </div>
+              <div class="col btn btn-outline-success border-0 p-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  class="bi bi-trophy-fill mb-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935z"
+                  />
+                </svg>
+                <h5 class="m-0">Deporte</h5>
+              </div>
+              <div class="col btn btn-outline-success border-0 p-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  class="bi bi-phone-fill mb-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"
+                  />
+                </svg>
+                <h5 class="m-0">Celulares</h5>
+              </div>
+              <div class="col btn btn-outline-success border-0 p-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  class="bi bi-three-dots mb-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                  />
+                </svg>
+                <h5 class="m-0">Todo</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- OFERTAS -->
+          <div class="d-flex align-items-baseline">
+            <h3 class="mb-3 me-3 text-secondary">Ofertas</h3>
+            <a href="" class="link-primary text-decoration-none">Ver mas</a>
+          </div>
+          <div class="row mb-5">
+            <div class="col-md-3">
+              <div class="card mb-3 shadow-sm custom-card cursor-active">
+                <img
+                  class="bd-placeholder-img card-img-top p-2 border-bottom"
+                  src="img/prod50741_1.jpg"
+                  alt="Imgagen representativa de la categoría 'Autos'"
+                />
+                <div class="card-body">
+                  <h3 class="card-title mb-1">Oso de peluche</h3>
+                  <p class="card-text text-muted mb-1 small">
+                    <del> $ 2.880 </del>
+                  </p>
+                  <div class="d-flex">
+                    <h4 class="card-subtitle mb-2 me-2">$ 2.400</h4>
+                    <p class="card-text text-success mb-0">20% OFF</p>
+                  </div>
+                  <p class="card-text text-success mb-1">
+                    10x $ 240
+                    <mark> sin interes </mark>
+                    <span
+                      class="position-absolute top-100 start-50 translate-middle badge bg-success"
+                      >Envio gratis</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card mb-3 shadow-sm custom-card cursor-active">
+                <img
+                  class="bd-placeholder-img card-img-top p-2 border-bottom"
+                  src="img/prod60804_4.jpg"
+                  alt="Imgagen representativa de la categoría 'Autos'"
+                />
+                <div class="card-body">
+                  <h3 class="card-title mb-1">Mesa de centro</h3>
+                  <p class="card-text text-muted mb-1 small">
+                    <del> $ 11.500 </del>
+                  </p>
+                  <div class="d-flex">
+                    <h4 class="card-subtitle mb-2 me-2">$ 10.000</h4>
+                    <p class="card-text text-success mb-0">15% OFF</p>
+                  </div>
+                  <p class="card-text text-success mb-1">
+                    10x $ 1.000
+                    <mark> sin interes </mark>
+                    <span
+                      class="position-absolute top-100 start-50 translate-middle badge bg-success"
+                      >Envio gratis</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card mb-3 shadow-sm custom-card cursor-active">
+                <img
+                  class="bd-placeholder-img card-img-top p-2 border-bottom"
+                  src="img/prod50742_2.jpg"
+                  alt="Imgagen representativa de la categoría 'Autos'"
+                />
+                <div class="card-body">
+                  <h3 class="card-title mb-1">Pelota Wilson</h3>
+                  <p class="card-text text-muted mb-1 small">
+                    <del> $ 3.899 </del>
+                  </p>
+                  <div class="d-flex">
+                    <h4 class="card-subtitle mb-2 me-2">$ 2.999</h4>
+                    <p class="card-text text-success mb-0">30% OFF</p>
+                  </div>
+                  <p class="card-text text-success mb-1">
+                    10x $ 299
+                    <mark> sin interes </mark>
+                    <span
+                      class="position-absolute top-100 start-50 translate-middle badge bg-success"
+                      >Envio gratis</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card mb-3 mb-4 shadow-sm custom-card cursor-active">
+                <img
+                  class="bd-placeholder-img card-img-top p-2 border-bottom"
+                  src="img/prod60801_2.jpg"
+                  alt="Imgagen representativa de la categoría 'Autos'"
+                />
+                <div class="card-body">
+                  <h3 class="card-title mb-1">Juego de comedor</h3>
+                  <p class="card-text text-muted mb-1 small">
+                    <del> $ 4.400 </del>
+                  </p>
+                  <div class="d-flex">
+                    <h4 class="card-subtitle mb-2 me-2">$ 4.000</h4>
+                    <p class="card-text text-success mb-0">10% OFF</p>
+                  </div>
+                  <p class="card-text text-success mb-0">
+                    10x $ 400
+                    <mark> sin interes </mark>
+                    <span
+                      class="position-absolute top-100 start-50 translate-middle badge bg-success"
+                      >Envio gratis</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TE-PUEDE-INTERESAR -->
+          <div class="d-flex align-items-baseline">
+            <h3 class="mb-3 me-3 text-secondary">Te puede interesar</h3>
+          </div>
+          <div class="row mb-5">
+            <div class="col-md-6">
+              <div class="card mb-3">
+                <img src="img/prod50924_1.jpg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h3 class="card-title">Autos</h3>
                   <p class="card-text">
                     Los mejores precios en autos 0 kilómetro, de alta y media
                     gama estan aquí.
                   </p>
+                  <a href="#" class="btn btn-success fw-bold">Ver mas</a>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div
-                class="card mb-4 shadow-sm custom-card cursor-active"
-                id="juguetes"
-              >
-                <img
-                  class="bd-placeholder-img card-img-top"
-                  src="img/toys_index.jpg"
-                  alt="Imgagen representativa de la categoría 'Juguetes'"
-                />
-                <h3 class="m-3">Juguetes</h3>
+            <div class="col-md-6">
+              <div class="card mb-3">
+                <img src="img/prod40281_1.jpg" class="card-img-top" alt="..." />
                 <div class="card-body">
+                  <h3 class="card-title">Computadoras</h3>
                   <p class="card-text">
-                    Encuentra aquí los mejores precios para niños/as de
-                    cualquier edad.
+                    Todo los equipos y componentes que buscas en un solo lugar.
                   </p>
+                  <a href="#" class="btn btn-success fw-bold">Ver mas</a>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div
-                class="card mb-4 shadow-sm custom-card cursor-active"
-                id="muebles"
-              >
-                <img
-                  class="bd-placeholder-img card-img-top"
-                  src="img/furniture_index.jpg"
-                  alt="Imgagen representativa de la categoría 'Muebles'"
-                />
-                <h3 class="m-3">Muebles</h3>
-                <div class="card-body">
-                  <p class="card-text">
-                    Muebles antiguos, nuevos y para ser armados por uno mismo.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <a class="btn btn-light btn-lg btn-block" href="categories.html"
-              >Y mucho más!</a
-            >
           </div>
         </div>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <a class="btn btn-light btn-lg btn-block" href="categories.html"
+          >Y mucho más!</a
+        >
       </div>
     </main>
 

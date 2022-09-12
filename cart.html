@@ -17,10 +17,15 @@
   </head>
 
   <body>
-    <!-- NAVEGACION -->
+    <!-- NAVBAR -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-3">
       <div class="container">
+        <!-- LOGO -->
+
+        <a class="navbar-brand pb-2" href="frontPage.html">
+          <img src="img/logo color original.png" alt="" width="200" />
+        </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -33,22 +38,119 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav w-100 justify-content-between">
-            <li class="nav-item">
-              <a class="nav-link active" href="frontPage.html">Inicio</a>
+          <ul class="navbar-nav w-100 align-content-center justify-content-end">
+            <!-- SEARCH -->
+
+            <div class="container p-0 m-0 nav-item ms-3">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-dark" type="submit">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                    class="bi bi-search me-3"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
+
+            <!-- USUARIO -->
+
+            <li class="dropdown nav-item">
+              <a
+                class="dropdown-toggle nav-link me-2"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="profile"
+              >
+              </a>
+
+              <!-- MENU-DESPLEGABLE-USUARIO -->
+              <ul class="dropdown-menu dropdown-menu-dark p-2">
+                <li><a class="dropdown-item nav-link" href="#">Action</a></li>
+                <li>
+                  <a class="dropdown-item nav-link" href="#">Another action</a>
+                </li>
+                <li>
+                  <a class="dropdown-item nav-link" href="#"
+                    >Something else here</a
+                  >
+                </li>
+              </ul>
             </li>
+
+            <!-- CATEGORIAS -->
             <li class="nav-item">
-              <a class="nav-link" href="categories.html" id="categories"
+              <a class="nav-link me-2" href="categories.html" id="categories"
                 >Categorías</a
               >
             </li>
+
+            <!-- VENDER -->
             <li class="nav-item">
-              <a class="nav-link" href="sell.html" id="sell">Vender</a>
+              <a class="nav-link me-2" href="sell.html" id="sell">Vender</a>
             </li>
+
+            <!-- NOTIFICACIONES -->
             <li class="nav-item">
-              <a id="profile" class="nav-link" href="my-profile.html"></a>
+              <a class="nav-link position-relative me-2" href=""
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  class="bi bi-bell"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"
+                  />
+                  <span
+                    class="position-absolute top-90 start-60 translate-middle p-1 bg-danger border rounded-circle"
+                  >
+                    <span class="visually-hidden">New alerts</span>
+                  </span>
+                </svg></a
+              >
             </li>
-            
+            <li class="nav-item"></li>
+
+            <!-- CARRITO -->
+            <li class="nav-item">
+              <a class="nav-link position-relative" href=""
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-cart2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                  />
+                  <span
+                    class="position-absolute top-90 start-60 translate-middle p-1 bg-danger border rounded-circle"
+                  >
+                    <span class="visually-hidden">New alerts</span>
+                  </span>
+                </svg></a
+              >
+            </li>
           </ul>
         </div>
       </div>
