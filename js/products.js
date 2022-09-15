@@ -80,42 +80,40 @@ const showProductsList = (array) => {
   }
 
   array.forEach((element) => {
-    {
-      htmlContentToAppend +=
-        `
+    htmlContentToAppend +=
+      `
         <div onclick="setProductID(${element.id})" class="card list-group-item list-group-item-action">
         <div class="row">
         <div class="col-3">
         <img src="` +
-        element.image +
-        `" alt="product image" class="img-thumbnail">
+      element.image +
+      `" alt="product image" class="img-thumbnail">
         </div>
         <div class="col">
         <div class="d-flex w-100 justify-content-between">
         <div class="mb-1">
         <h4>` +
-        element.name +
-        " - " +
-        element.currency +
-        " " +
-        element.cost +
-        `</h4>
+      element.name +
+      " - " +
+      element.currency +
+      " " +
+      element.cost +
+      `</h4>
         <p> ` +
-        element.description +
-        `</p>
+      element.description +
+      `</p>
         </div>
         <small class="text-muted">` +
-        element.soldCount +
-        ` vendidos</small>
+      element.soldCount +
+      ` vendidos</small>
         </div>
     
         </div>
         </div>
         </div>
         `;
-    }
-    PRODUCTS_CONTAINER.innerHTML = htmlContentToAppend;
   });
+  PRODUCTS_CONTAINER.innerHTML = htmlContentToAppend;
 };
 
 // * ---------- EVENTOS ---------

@@ -215,6 +215,3 @@ const newComment = [
     id: productID,
   },
 ];
-
-// * Bugs
-// * --- El comentario es el mismo al cambiar de producto

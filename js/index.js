@@ -25,8 +25,13 @@
 
 //* Funcion ingreso Google
 
-function ingreso() {
+function ingreso(googleUser) {
+  let credentialArray = googleUser.credential.split(".");
+
+  let res = JSON.parse(atob(credentialArray[1]));
+
+  setEmail(res.email);
+
   alert("Ingreso exitoso!");
-  location.href =
-    "https://nicorchea.github.io/workspace-inicial/frontPage.html?";
+  location.href = window.location.origin + "/frontPage.html";
 }

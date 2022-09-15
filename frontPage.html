@@ -50,11 +50,12 @@
             <div class="container p-0 m-0 nav-item ms-3">
               <form class="d-flex" role="search">
                 <input
-                  class="form-control me-2"
+                  class="form-control"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
                 />
+
                 <button class="btn btn-dark" type="submit">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +127,7 @@
                     d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"
                   />
                   <span
-                    class="position-absolute top-90 start-60 translate-middle p-1 bg-danger border rounded-circle"
+                    class="position-absolute top-90 start-60 translate-middle p-1 bg-danger rounded-circle"
                   >
                     <span class="visually-hidden">New alerts</span>
                   </span>
@@ -137,7 +138,7 @@
 
             <!-- CARRITO -->
             <li class="nav-item">
-              <a class="nav-link position-relative" href=""
+              <a class="nav-link position-relative" href="cart.html"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -150,7 +151,7 @@
                     d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
                   />
                   <span
-                    class="position-absolute top-90 start-60 translate-middle p-1 bg-danger border rounded-circle"
+                    class="position-absolute top-90 start-60 translate-middle p-1 bg-danger rounded-circle"
                   >
                     <span class="visually-hidden">New alerts</span>
                   </span>
@@ -225,7 +226,10 @@
           </div>
           <div class="row mb-5">
             <div class="col-md-3">
-              <div class="card mb-3 shadow-sm custom-card cursor-active">
+              <div
+                class="card mb-3 shadow-sm custom-card cursor-active"
+                id="sofa"
+              >
                 <img
                   class="bd-placeholder-img card-img-top p-2 border-bottom"
                   src="img/prod60802_1.jpg"
@@ -242,7 +246,10 @@
               </div>
             </div>
             <div class="col-md-3">
-              <div class="card mb-3 shadow-sm custom-card cursor-active">
+              <div
+                class="card mb-3 shadow-sm custom-card cursor-active"
+                id="bicicleta"
+              >
                 <img
                   class="bd-placeholder-img card-img-top p-2 border-bottom"
                   src="img/prod50744_4.jpg"
@@ -264,7 +271,10 @@
             </div>
 
             <div class="col-md-3">
-              <div class="card mb-3 shadow-sm custom-card cursor-active">
+              <div
+                class="card mb-3 shadow-sm custom-card cursor-active"
+                id="armario"
+              >
                 <img
                   class="bd-placeholder-img card-img-top p-2 border-bottom"
                   src="img/prod60803_1.jpg"
@@ -281,7 +291,10 @@
               </div>
             </div>
             <div class="col-md-3">
-              <div class="card mb-3 shadow-sm custom-card cursor-active">
+              <div
+                class="card mb-3 shadow-sm custom-card cursor-active"
+                id="playstation"
+              >
                 <img
                   class="bd-placeholder-img card-img-top p-2 border-bottom"
                   src="img/prod50743_1.jpg"
@@ -313,7 +326,7 @@
             class="container text-center mb-5 border-top border-bottom p-2 bg-white"
           >
             <div class="row row-cols-5">
-              <div class="col btn btn-outline-success border-0 p-3">
+              <div class="col btn btn-outline-success border-0 p-3" id="cars">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -329,7 +342,7 @@
                 </svg>
                 <h5 class="m-0">Autos</h5>
               </div>
-              <div class="col btn btn-outline-success border-0 p-3">
+              <div class="col btn btn-outline-success border-0 p-3" id="toys">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -347,7 +360,10 @@
                 </svg>
                 <h5 class="m-0">Juguetes</h5>
               </div>
-              <div class="col btn btn-outline-success border-0 p-3">
+              <div
+                class="col btn btn-outline-success border-0 p-3"
+                id="furniture"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -367,7 +383,7 @@
                 </svg>
                 <h5 class="m-0">Muebles</h5>
               </div>
-              <div class="col btn btn-outline-success border-0 p-3">
+              <div class="col btn btn-outline-success border-0 p-3" id="tools">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -382,7 +398,10 @@
                 </svg>
                 <h5 class="m-0">Herramientas</h5>
               </div>
-              <div class="col btn btn-outline-success border-0 p-3">
+              <div
+                class="col btn btn-outline-success border-0 p-3"
+                id="computers"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -397,7 +416,7 @@
                 </svg>
                 <h5 class="m-0">Computadoras</h5>
               </div>
-              <div class="col btn btn-outline-success border-0 p-3">
+              <div class="col btn btn-outline-success border-0 p-3" id="cloth">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -412,7 +431,10 @@
                 </svg>
                 <h5 class="m-0">Vestimenta</h5>
               </div>
-              <div class="col btn btn-outline-success border-0 p-3">
+              <div
+                class="col btn btn-outline-success border-0 p-3"
+                id="home-appliances"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -431,7 +453,7 @@
                 </svg>
                 <h5 class="mt-0">Electrodomesticos</h5>
               </div>
-              <div class="col btn btn-outline-success border-0 p-3">
+              <div class="col btn btn-outline-success border-0 p-3" id="sport">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -446,7 +468,7 @@
                 </svg>
                 <h5 class="m-0">Deporte</h5>
               </div>
-              <div class="col btn btn-outline-success border-0 p-3">
+              <div class="col btn btn-outline-success border-0 p-3" id="mobile">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -461,7 +483,7 @@
                 </svg>
                 <h5 class="m-0">Celulares</h5>
               </div>
-              <div class="col btn btn-outline-success border-0 p-3">
+              <div class="col btn btn-outline-success border-0 p-3" id="all">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -486,7 +508,10 @@
           </div>
           <div class="row mb-5">
             <div class="col-md-3">
-              <div class="card mb-3 shadow-sm custom-card cursor-active">
+              <div
+                class="card mb-3 shadow-sm custom-card cursor-active"
+                id="oso"
+              >
                 <img
                   class="bd-placeholder-img card-img-top p-2 border-bottom"
                   src="img/prod50741_1.jpg"
@@ -513,7 +538,10 @@
               </div>
             </div>
             <div class="col-md-3">
-              <div class="card mb-3 shadow-sm custom-card cursor-active">
+              <div
+                class="card mb-3 shadow-sm custom-card cursor-active"
+                id="mesa"
+              >
                 <img
                   class="bd-placeholder-img card-img-top p-2 border-bottom"
                   src="img/prod60804_4.jpg"
@@ -541,7 +569,10 @@
             </div>
 
             <div class="col-md-3">
-              <div class="card mb-3 shadow-sm custom-card cursor-active">
+              <div
+                class="card mb-3 shadow-sm custom-card cursor-active"
+                id="pelota"
+              >
                 <img
                   class="bd-placeholder-img card-img-top p-2 border-bottom"
                   src="img/prod50742_2.jpg"
@@ -569,7 +600,10 @@
             </div>
 
             <div class="col-md-3">
-              <div class="card mb-3 mb-4 shadow-sm custom-card cursor-active">
+              <div
+                class="card mb-3 mb-4 shadow-sm custom-card cursor-active"
+                id="comedor"
+              >
                 <img
                   class="bd-placeholder-img card-img-top p-2 border-bottom"
                   src="img/prod60801_2.jpg"
@@ -611,7 +645,9 @@
                     Los mejores precios en autos 0 kilómetro, de alta y media
                     gama estan aquí.
                   </p>
-                  <a href="#" class="btn btn-success fw-bold">Ver mas</a>
+                  <a class="btn btn-success fw-bold" onclick="goToCars()"
+                    >Ver mas</a
+                  >
                 </div>
               </div>
             </div>
@@ -623,7 +659,9 @@
                   <p class="card-text">
                     Todo los equipos y componentes que buscas en un solo lugar.
                   </p>
-                  <a href="#" class="btn btn-success fw-bold">Ver mas</a>
+                  <a class="btn btn-success fw-bold" onclick="goToComputers()"
+                    >Ver mas</a
+                  >
                 </div>
               </div>
             </div>

@@ -2,9 +2,12 @@
 
 // * ---------- LOCAL STORAGE ----------
 
+// Conseguimos el mail
+const email = document.getElementById("emailInput");
+
 // Guarda el email en la local storage
-const setEmail = () => {
-  localStorage.setItem("email", emailInput.value);
+const setEmail = (email) => {
+  localStorage.setItem("email", email);
 };
 
 // Obtiene el email de la local storage-
@@ -21,7 +24,7 @@ if (document.getElementById("submit")) {
   const btn = document.getElementById("submit");
 
   btn.onclick = () => {
-    setEmail();
+    setEmail(emailInput.value);
   };
 } else {
   // Si no hay boton de submit, muestra el correo en la navBar
