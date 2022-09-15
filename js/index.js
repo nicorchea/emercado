@@ -33,5 +33,5 @@ function ingreso(googleUser) {
   setEmail(res.email);
 
   alert("Ingreso exitoso!");
-  location.href = window.location.origin + "/frontPage.html";
+  location.href = window.location.origin + "/workspace-inicial/frontPage.html";
 }
