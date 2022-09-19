@@ -68,6 +68,7 @@ const BTN_LIMPIAR = document.getElementById("clearRangeFilter");
 // Funcion que guarda la ID del producto en la local storage
 const setProductID = (id) => {
   localStorage.setItem("productID", id);
+
   window.location = "product-info.html";
 };
 

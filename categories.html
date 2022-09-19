@@ -45,11 +45,12 @@
             <div class="container p-0 m-0 nav-item ms-3">
               <form class="d-flex" role="search">
                 <input
-                  class="form-control me-2"
+                  class="form-control"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
                 />
+
                 <button class="btn btn-dark" type="submit">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -82,13 +83,22 @@
 
               <!-- MENU-DESPLEGABLE-USUARIO -->
               <ul class="dropdown-menu dropdown-menu-dark p-2">
-                <li><a class="dropdown-item nav-link" href="#">Action</a></li>
                 <li>
-                  <a class="dropdown-item nav-link" href="#">Another action</a>
+                  <a class="dropdown-item nav-link" href="cart.html"
+                    >Mi carrito
+                  </a>
                 </li>
                 <li>
-                  <a class="dropdown-item nav-link" href="#"
-                    >Something else here</a
+                  <a class="dropdown-item nav-link" href="my-profile.html"
+                    >Mi perfil</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item nav-link"
+                    href="index.html"
+                    onclick="localStorage.clear()"
+                    >Cerrar sesión</a
                   >
                 </li>
               </ul>
@@ -131,8 +141,8 @@
             <li class="nav-item"></li>
 
             <!-- CARRITO -->
-            <li class="nav-item">
-              <a class="nav-link position-relative" href=""
+            <!-- <li class="nav-item">
+              <a class="nav-link position-relative" href="cart.html"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -151,7 +161,7 @@
                   </span>
                 </svg></a
               >
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>

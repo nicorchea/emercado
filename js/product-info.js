@@ -11,6 +11,15 @@ function showAlertError() {
 //Container donde se cargara La informacion del producto
 const PRODUCT_CONTAINER = document.getElementById("product-info-container");
 
+// Container donde se cargan los productos relacionados
+const RELATED_CONTAINER = document.getElementById("related");
+
+// Container donde se cargar los comentarios
+const COMMENTS_CONTAINER = document.getElementById("comments-container");
+
+// Contenedor carrusel
+const CAROUSEL_CONTAINER = document.getElementById("carousel-inner");
+
 // Boton enviar
 const BTN_SEND = document.getElementById("enviar");
 
@@ -41,6 +50,31 @@ const getProductImages = (array) => {
   return res;
 };
 
+// Funcion que muestra el carrusel con imagenes
+const showCarousel = (array) => {
+  console.log(array);
+  let res = "";
+
+  res += `
+  
+  <div class="carousel-item active">
+    <img src="${array[0]}" class=" d-block w-50" alt="..." />
+  </div>
+  
+  `;
+
+  for (let i = 1; i < array.length; i++) {
+    res += `
+
+    <div class="carousel-item">
+            <img src="${array[i]}" class=" d-block w-50" alt="..." />
+    </div>
+
+    `;
+  }
+  CAROUSEL_CONTAINER.innerHTML = res;
+};
+
 // Funcion que muestra la informacion del producto y sus imagenes
 const showProductInfo = (obj) => {
   PRODUCT_CONTAINER.innerHTML += `
@@ -68,14 +102,12 @@ const showProductInfo = (obj) => {
   
   <div class="d-flex mt-4 mb-3"> ${getProductImages(obj.images)} </div>
 
-  <hr >
-  <ul id="comments-container" class="list-group list-group-flush mb-3">    
-  </ul>
-  <hr >
-
   `;
 };
 
+// for (let i = 0; i <= comment.score.length; i++) {}
+
+// !Se puede mejorar
 // Funcion que evualua el puntaje
 const getStars = (number) => {
   switch (number) {
@@ -114,15 +146,16 @@ const getStars = (number) => {
 
 // Funcion que muestra los comentarios del producto y las estrellas segun puntaje
 const showProductComments = (obj) => {
-  let COMMENTS_CONTAINER = document.getElementById("comments-container");
-
   obj.forEach((comment) => {
     COMMENTS_CONTAINER.innerHTML += `
+    
 
     <li class="list-group-item bg-light">
+
       <span class="fw-bold">
       ${comment.user}
       </span>
+
       ${comment.dateTime} -
 
       ${getStars(comment.score)}
@@ -130,6 +163,7 @@ const showProductComments = (obj) => {
       <br>
       ${comment.description}
     </li>
+
     `;
   });
 };
@@ -142,8 +176,12 @@ urlArray.forEach((url) => {
     getJSONData(url).then(function (resultObj) {
       if (resultObj.status === "ok" && resultObj.data.id) {
         const product = resultObj.data;
+        const related = resultObj.data.relatedProducts;
+        const images = resultObj.data.images;
 
         showProductInfo(product);
+        showrelated(related);
+        showCarousel(images);
       } else if (resultObj.status === "ok") {
         const comments = resultObj.data;
 
@@ -162,15 +200,57 @@ BTN_SEND.onclick = () => {
     showAlertError();
   } else {
     const productID = localStorage.getItem("productID");
+
     localStorage.setItem("commentID", productID);
 
     localStorage.setItem("opinion", OPINION.value);
+
     localStorage.setItem("stars", STARS.value);
 
     OPINION.value = "";
 
     window.location.reload();
   }
+};
+
+// Setter que modifica el ID del producto al hacer click en un producto relacionado y vuelve a cargar la pagina
+const setProductID = (id) => {
+  localStorage.setItem("productID", id);
+
+  window.location = "product-info.html";
+};
+
+// Funcion que muestra los prductos relacionados
+const showrelated = (array) => {
+  array.forEach((element) => {
+    RELATED_CONTAINER.innerHTML += `
+
+            <div class="col-md-3">
+
+              <div
+                class="card mb-3 shadow-sm custom-card cursor-active"
+                id="sofa"
+                onclick="setProductID(${element.id})"
+              >
+
+                <img
+                  class="bd-placeholder-img card-img-top p-2 border-bottom"
+                  src="${element.image}"
+                  alt="Imgagen representativa de producto relacionado"
+                />
+
+                <div class="card-body">
+
+                  <h4 class="card-title mb-2">${element.name}</h4>
+                  
+                </div>
+
+              </div>
+
+            </div>
+
+    `;
+  });
 };
 
 // * ---------- LOCAL STORAGE ----------
