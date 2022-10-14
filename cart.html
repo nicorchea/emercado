@@ -138,29 +138,6 @@
               >
             </li>
             <li class="nav-item"></li>
-
-            <!-- CARRITO -->
-            <!-- <li class="nav-item">
-              <a class="nav-link position-relative" href="cart.html"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  class="bi bi-cart2"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
-                  />
-                  <span
-                    class="position-absolute top-90 start-60 translate-middle p-1 bg-danger rounded-circle"
-                  >
-                    <span class="visually-hidden">New alerts</span>
-                  </span>
-                </svg></a
-              >
-            </li> -->
           </ul>
         </div>
       </div>
@@ -170,9 +147,98 @@
 
     <main>
       <div class="container">
-        <div class="alert alert-danger text-center" role="alert">
-          <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+        <h2 class="text-center m-4">Carrito de compras</h2>
+        <h4 class="my-4">Artículos a comprar</h4>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Costo</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="table"></tbody>
+        </table>
+        <h4 class="my-4">Tipo de envío</h4>
+        <div>
+          <div class="d-flex">
+            <input
+              class="form-check-input me-2 p-0"
+              type="radio"
+              name="tipo"
+              value="p"
+              required
+              aria-label="Checkbox for following text input"
+            />
+            <p>Premium 2 a 5 dias (15%)</p>
+          </div>
+          <div class="d-flex">
+            <input
+              class="form-check-input me-2 p-0"
+              type="radio"
+              name="tipo"
+              value="e"
+              required
+              aria-label="Checkbox for following text input"
+            />
+            <p>Express 5 a 8 dias (7%)</p>
+          </div>
+          <div class="d-flex">
+            <input
+              class="form-check-input me-2 p-0"
+              type="radio"
+              name="tipo"
+              value="s"
+              required
+              aria-label="Checkbox for following text input"
+            />
+            <p>Standard 12 a 15 dias (5%)</p>
+          </div>
         </div>
+        <h4 class="my-4">Direccion de envio</h4>
+        <div class="d-flex">
+          <div>
+            <label for="calle" class="form-label">Calle</label>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control me-4"
+                id="calle"
+                aria-describedby="basic-addon3"
+                style="width: 25rem"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="numero" class="form-label">Numero</label>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="numero"
+                aria-describedby="basic-addon3"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div>
+            <label for="calle" class="form-label">Esquina</label>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control me-4"
+                id="calle"
+                aria-describedby="basic-addon3"
+                style="width: 25rem"
+              />
+            </div>
+          </div>
+        </div>
+        <hr />
       </div>
     </main>
 

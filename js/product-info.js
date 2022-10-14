@@ -32,6 +32,9 @@ const STARS = document.getElementById("inputGroupSelect");
 // Array que contiene las URLs que vamos a utilizar
 const urlArray = [PRODUCT_INFO_URL, PRODUCT_INFO_COMMENTS_URL];
 
+// Iniciams una lista vacia
+let lista = [];
+
 // * ---------- FUNCIONES ----------
 
 // Funcion que devuelve las imagenes del producto
@@ -52,7 +55,6 @@ const getProductImages = (array) => {
 
 // Funcion que muestra el carrusel con imagenes
 const showCarousel = (array) => {
-  console.log(array);
   let res = "";
 
   res += `
@@ -78,14 +80,21 @@ const showCarousel = (array) => {
 // Funcion que muestra la informacion del producto y sus imagenes
 const showProductInfo = (obj) => {
   PRODUCT_CONTAINER.innerHTML += `
-  
+
+  <div class="d-flex justify-content-between">
   <h2> ${obj.name} </h2>
-  
+  <div id="btn-comprar" class="btn btn-success me-5 fw-bold p-2 d-flex align-items-center">Comprar</div>
+
+  </div>
   <hr class="mb-5">
   
   <div class="ps-3">
 
-  <span class="fw-bold "> Precio </span>
+  <div class="d-flex justify-content-between">
+  <span class="fw-bold"> Precio </span>
+  <a href="products.html" class="me-5 text-decoration-none">  &#8592; Volver al listado</a>
+  </div>
+
   <p> ${obj.currency} ${obj.cost}</p>
 
   <span class="fw-bold"> Descripción </span>
@@ -104,6 +113,10 @@ const showProductInfo = (obj) => {
 
   `;
 };
+
+// const getList = () => {
+//   return JSON.parse(localStorage.getItem("comprados"));
+// };
 
 // for (let i = 0; i <= comment.score.length; i++) {}
 
@@ -182,6 +195,19 @@ urlArray.forEach((url) => {
         showProductInfo(product);
         showrelated(related);
         showCarousel(images);
+        const BTN_COMPRAR = document.getElementById("btn-comprar");
+        BTN_COMPRAR.onclick = () => {
+          if (localStorage.getItem("buys")) {
+            let buysList = JSON.parse(localStorage.getItem("buys"));
+
+            buysList.push(product);
+
+            localStorage.setItem("buys", JSON.stringify(buysList));
+          } else {
+            localStorage.setItem("buys", JSON.stringify([product]));
+          }
+          window.location = "cart.html";
+        };
       } else if (resultObj.status === "ok") {
         const comments = resultObj.data;
 
