@@ -32,8 +32,8 @@ const STARS = document.getElementById("inputGroupSelect");
 // Array que contiene las URLs que vamos a utilizar
 const urlArray = [PRODUCT_INFO_URL, PRODUCT_INFO_COMMENTS_URL];
 
-// Iniciams una lista vacia
-let lista = [];
+// Iniciamos una lista vacia
+let buys = [];
 
 // * ---------- FUNCIONES ----------
 
@@ -77,13 +77,21 @@ const showCarousel = (array) => {
   CAROUSEL_CONTAINER.innerHTML = res;
 };
 
+// Funcion que agrega las compras a la local storage
+// const addToCart = (id) => {
+
+// };
+
 // Funcion que muestra la informacion del producto y sus imagenes
 const showProductInfo = (obj) => {
   PRODUCT_CONTAINER.innerHTML += `
 
   <div class="d-flex justify-content-between">
   <h2> ${obj.name} </h2>
-  <div id="btn-comprar" class="btn btn-success me-5 fw-bold p-2 d-flex align-items-center">Comprar</div>
+  <div id="btn-comprar" 
+  class="btn btn-success me-5 fw-bold p-2 d-flex align-items-center">
+  Comprar
+  </div>
 
   </div>
   <hr class="mb-5">
@@ -113,10 +121,6 @@ const showProductInfo = (obj) => {
 
   `;
 };
-
-// const getList = () => {
-//   return JSON.parse(localStorage.getItem("comprados"));
-// };
 
 // for (let i = 0; i <= comment.score.length; i++) {}
 
@@ -195,16 +199,31 @@ urlArray.forEach((url) => {
         showProductInfo(product);
         showrelated(related);
         showCarousel(images);
+
         const BTN_COMPRAR = document.getElementById("btn-comprar");
+
         BTN_COMPRAR.onclick = () => {
           if (localStorage.getItem("buys")) {
-            let buysList = JSON.parse(localStorage.getItem("buys"));
+            buys = JSON.parse(localStorage.getItem("buys"));
+          }
 
-            buysList.push(product);
-
-            localStorage.setItem("buys", JSON.stringify(buysList));
+          if (buys.some((element) => element.id === product.id)) {
+            return;
+            // console.log(buys);
+            // alert("asd");
+            // buys.find((element) => element.id == product.id).count++;
           } else {
-            localStorage.setItem("buys", JSON.stringify([product]));
+            let item = {
+              id: product.id,
+              count: 1,
+              name: product.name,
+              unitCost: product.cost,
+              image: product.images[0],
+              currency: product.currency,
+            };
+
+            buys.push(item);
+            localStorage.setItem("buys", JSON.stringify(buys));
           }
           window.location = "cart.html";
         };

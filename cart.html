@@ -14,6 +14,10 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
   </head>
 
   <body>
@@ -143,13 +147,14 @@
       </div>
     </nav>
 
-    <!-- MAIN -->
+    <!--* MAIN -->
 
     <main>
       <div class="container">
         <h2 class="text-center m-4">Carrito de compras</h2>
         <h4 class="my-4">Artículos a comprar</h4>
 
+        <!--* TABLE -->
         <table class="table">
           <thead>
             <tr>
@@ -162,6 +167,8 @@
           </thead>
           <tbody id="table"></tbody>
         </table>
+
+        <!--* TIPO-DE-ENVIO -->
         <h4 class="my-4">Tipo de envío</h4>
         <div>
           <div class="d-flex">
@@ -172,6 +179,8 @@
               value="p"
               required
               aria-label="Checkbox for following text input"
+              id="premium"
+              checked=""
             />
             <p>Premium 2 a 5 dias (15%)</p>
           </div>
@@ -183,6 +192,7 @@
               value="e"
               required
               aria-label="Checkbox for following text input"
+              id="express"
             />
             <p>Express 5 a 8 dias (7%)</p>
           </div>
@@ -194,51 +204,226 @@
               value="s"
               required
               aria-label="Checkbox for following text input"
+              id="standard"
             />
             <p>Standard 12 a 15 dias (5%)</p>
           </div>
         </div>
+
+        <!--* DIRECCION-DE-ENVIO -->
         <h4 class="my-4">Direccion de envio</h4>
-        <div class="d-flex">
-          <div>
-            <label for="calle" class="form-label">Calle</label>
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control me-4"
-                id="calle"
-                aria-describedby="basic-addon3"
-                style="width: 25rem"
-              />
+
+        <form action="#" method="" class="needs-validation" novalidate>
+          <div class="d-flex">
+            <div>
+              <label for="calle" class="form-label">Calle</label>
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control me-4"
+                  id="calle"
+                  aria-describedby="basic-addon3"
+                  style="width: 25rem"
+                  required
+                />
+                <div class="invalid-feedback">Ingresa una calle</div>
+              </div>
+            </div>
+            <div>
+              <label for="numero" class="form-label">Numero</label>
+              <div class="input-group mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="numero"
+                  aria-describedby="basic-addon3"
+                  required
+                />
+                <div class="invalid-feedback">Ingresa un numero</div>
+              </div>
             </div>
           </div>
-          <div>
-            <label for="numero" class="form-label">Numero</label>
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="numero"
-                aria-describedby="basic-addon3"
-              />
+          <div class="d-flex">
+            <div>
+              <label for="calle" class="form-label">Esquina</label>
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control me-4"
+                  id="calle"
+                  aria-describedby="basic-addon3"
+                  style="width: 25rem"
+                  required
+                />
+                <div class="invalid-feedback">Ingresa una esquina</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="d-flex">
-          <div>
-            <label for="calle" class="form-label">Esquina</label>
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control me-4"
-                id="calle"
-                aria-describedby="basic-addon3"
-                style="width: 25rem"
-              />
+          <hr />
+
+          <!--* COSTOS -->
+          <h4 class="my-4">Costos</h4>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between m-0 p-0">
+                <p class="m-0 p-0">Subtotal</p>
+                <p class="m-0 p-0 text-secondary">
+                  USD <span id="subtotal"> </span>
+                </p>
+              </div>
+              <p class="m-0 p-0 text-secondary">
+                Costo unitario del producto por cantidad
+              </p>
+            </li>
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between">
+                <p class="m-0 p-0">Costo de envio</p>
+                <p class="m-0 p-0 text-secondary">
+                  USD <span id="shipping"> </span>
+                </p>
+              </div>
+              <p class="m-0 p-0 text-secondary">Segun el tipo de envio</p>
+            </li>
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between">
+                <p class="m-0 p-0">Total ($)</p>
+                <p class="m-0 p-0 fw-bold">USD <span id="total"> </span></p>
+              </div>
+            </li>
+          </ul>
+          <hr />
+          <h4 class="my-4">Forma de pago</h4>
+          <div class="d-flex">
+            <p class="me-2">No ha seleccionado</p>
+            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              >Seleccionar</a
+            >
+          </div>
+          <!--* MODAL -->
+
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Forma de pago
+                  </h1>
+                </div>
+                <div class="modal-body">
+                  <div class="d-flex">
+                    <input
+                      class="form-check-input me-2 p-0"
+                      type="radio"
+                      name="tipo"
+                      value="s"
+                      aria-label="Checkbox for following text input"
+                      id="card-check"
+                      checked=""
+                    />
+                    <p>Tarjeta de credito</p>
+                  </div>
+                  <hr />
+                  <div class="d-flex">
+                    <div>
+                      <label for="card-input" class="form-label"
+                        >Numero de tarjeta</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control me-4"
+                          id="card-input"
+                          aria-describedby="basic-addon3"
+                          style="width: 15rem"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label for="code-input" class="form-label"
+                        >Codigo de seg.</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="code-input"
+                          aria-describedby="basic-addon3"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div>
+                      <label for="expiration-input" class="form-label"
+                        >Vencimiento (MM/AA)</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="date"
+                          class="form-control me-4"
+                          id="expiration-input"
+                          aria-describedby="basic-addon3"
+                          style="width: 15rem"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <input
+                      class="form-check-input me-2 p-0"
+                      type="radio"
+                      name="tipo"
+                      value="s"
+                      aria-label="Checkbox for following text input"
+                      id="bank-check"
+                    />
+                    <p>Transferencia bancaria</p>
+                  </div>
+                  <hr />
+                  <div>
+                    <label for="bank-input" class="form-label"
+                      >Numero de cuenta</label
+                    >
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control me-4"
+                        id="bank-input"
+                        aria-describedby="basic-addon3"
+                        style="width: 8rem"
+                        required
+                        disabled
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    Cerrar
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
+          <button type="submit" class="btn btn-primary w-100 fw-bold fs-6">
+            Finalizar la compra
+          </button>
+          <!-- </form> -->
+        </form>
       </div>
     </main>
 
@@ -262,6 +447,39 @@
         </p>
       </div>
     </footer>
+
+    <!-- ALERT SUCCESS -->
+
+    <div
+      class="alert alert-success alert-dismissible fade"
+      role="alert"
+      id="alert-success"
+    >
+      <p>¡Has comprado con éxito!</p>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+
+    <!-- ALERT DANGER -->
+
+    <div
+      class="alert alert-danger alert-dismissible fade"
+      role="alert"
+      id="alert-danger"
+    >
+      <p>Los datos ingresados no cumplen con los requisitos solicitados</p>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+
     <div id="spinner-wrapper">
       <div class="lds-ring">
         <div></div>
@@ -277,5 +495,34 @@
     <script src="js/init.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/localStorage.js"></script>
+    <script>
+      // BUILT-IN Bootstrap script requerido para el formulario
+
+      (function () {
+        "use strict";
+
+        // Seleccion de todos los forms que queremos aplicar validacion custom de bootstrap
+        var forms = document.querySelectorAll(".needs-validation");
+
+        // Loop entre ellos, validacion si esta todo correcto o no acompañado de las alertas de error o exito.
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+                showAlertError();
+              } else {
+                showAlertSuccess();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
   </body>
 </html>
