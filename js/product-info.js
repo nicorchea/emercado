@@ -209,9 +209,6 @@ urlArray.forEach((url) => {
 
           if (buys.some((element) => element.id === product.id)) {
             return;
-            // console.log(buys);
-            // alert("asd");
-            // buys.find((element) => element.id == product.id).count++;
           } else {
             let item = {
               id: product.id,

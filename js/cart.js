@@ -187,9 +187,9 @@ const showBuysList = () => {
   cartItems.forEach((element) => {
     TABLE.innerHTML += `
     
-    <th scope="row" id="image"><img style="width: 80px"; src="${
+    <td scope="row" id="image"><img style="width: 80px"; src="${
       element.image
-    }" alt=""></th>
+    }" alt=""></td>
 
     <td id="name">${element.name}</td>
 
